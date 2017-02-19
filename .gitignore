@@ -1,2 +1,4 @@
-/target/
-/notes
+target/
+.settings/
+.classpath
+.project

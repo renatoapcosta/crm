@@ -12,7 +12,9 @@ import org.hibernate.criterion.Restrictions;
 import org.pulem3t.crm.dao.OrderItemDAO;
 import org.pulem3t.crm.entry.OrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class OrderItemDAOImpl implements OrderItemDAO {
 
 	@Autowired
@@ -21,7 +23,7 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 	private Session session = null;
 	private Transaction tx = null;
 	
-	@Override
+	
 	public List<OrderItem> getOrderItems(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -34,7 +36,7 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 		return orderItemList;
 	}
 
-	@Override
+	
 	public OrderItem getOrderItem(Long id) {
 		
 		
@@ -48,7 +50,7 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 		return orderItem;
 	}
 
-	@Override
+	
 	public Long addOrderItem(OrderItem orderItem) {
 		
 		session = sessionFactory.openSession();
@@ -61,7 +63,7 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 		return orderItem.getId();
 	}
 
-	@Override
+	
 	public void delOrderItem(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -73,7 +75,7 @@ public class OrderItemDAOImpl implements OrderItemDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public void updateOrderItem(OrderItem orderItem) {
 		
 		session = sessionFactory.openSession();

@@ -12,7 +12,9 @@ import org.hibernate.criterion.Restrictions;
 import org.pulem3t.crm.dao.ProductDAO;
 import org.pulem3t.crm.entry.Product;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ProductDAOImpl implements ProductDAO {
 
 	@Autowired
@@ -21,7 +23,7 @@ public class ProductDAOImpl implements ProductDAO {
 	private Session session = null;
 	private Transaction tx = null;
 	
-	@Override
+	
 	public List<Product> getProducts() {
 		
 		session = sessionFactory.openSession();
@@ -34,7 +36,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return productList;
 	}
 
-	@Override
+	
 	public Product getProduct(Long id) {
 		
 		
@@ -48,7 +50,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return product;
 	}
 
-	@Override
+	
 	public Long addProduct(Product product) {
 		
 		session = sessionFactory.openSession();
@@ -61,7 +63,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return product.getId();
 	}
 
-	@Override
+	
 	public void delProduct(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -73,7 +75,7 @@ public class ProductDAOImpl implements ProductDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public void updateProduct(Product product) {
 		
 		session = sessionFactory.openSession();
@@ -94,7 +96,7 @@ public class ProductDAOImpl implements ProductDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public List<Product> getProductsByCompanyId(Long companyId) {
 		
 		session = sessionFactory.openSession();

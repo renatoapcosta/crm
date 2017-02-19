@@ -11,7 +11,9 @@ import org.hibernate.Transaction;
 import org.pulem3t.crm.dao.CustomerDAO;
 import org.pulem3t.crm.entry.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CustomerDAOImpl implements CustomerDAO {
 
 	@Autowired
@@ -20,7 +22,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	private Session session = null;
 	private Transaction tx = null;
 	
-	@Override
+	
 	public List<Customer> getCustomers() {
 		
 		session = sessionFactory.openSession();
@@ -33,7 +35,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customerList;
 	}
 
-	@Override
+	
 	public Customer getCustomer(Long id) {
 		
 		
@@ -47,7 +49,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customer;
 	}
 
-	@Override
+	
 	public Long addCustomer(Customer customer) {
 		
 		session = sessionFactory.openSession();
@@ -60,7 +62,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		return customer.getId();
 	}
 
-	@Override
+	
 	public void delCustomer(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -72,7 +74,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public void updateCustomer(Customer customer) {
 		
 		session = sessionFactory.openSession();

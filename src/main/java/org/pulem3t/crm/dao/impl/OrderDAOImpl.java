@@ -10,7 +10,9 @@ import org.pulem3t.crm.dao.OrderDAO;
 import org.pulem3t.crm.entry.Order;
 import org.pulem3t.crm.enums.OrderStatus;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class OrderDAOImpl implements OrderDAO {
 
 	@Autowired
@@ -19,7 +21,7 @@ public class OrderDAOImpl implements OrderDAO {
 	private Session session = null;
 	private Transaction tx = null;
 	
-	@Override
+	
 	public List<Order> getOrders() {
 		
 		session = sessionFactory.openSession();
@@ -32,7 +34,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return orderList;
 	}
 
-	@Override
+	
 	public List<Order> getOrdersByUserId(Long userId, Boolean manager) {
 		
 		session = sessionFactory.openSession();
@@ -51,7 +53,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return orderList;
 	}
 
-	@Override
+	
 	public void changeStatus(Long id, OrderStatus status) {
 		
 		session = sessionFactory.openSession();
@@ -65,7 +67,7 @@ public class OrderDAOImpl implements OrderDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public Order getOrder(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -78,7 +80,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return order;
 	}
 
-	@Override
+	
 	public Long addOrder(Order order) {
 		
 		session = sessionFactory.openSession();
@@ -91,7 +93,7 @@ public class OrderDAOImpl implements OrderDAO {
 		return order.getId();
 	}
 
-	@Override
+	
 	public void delOrder(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -103,7 +105,7 @@ public class OrderDAOImpl implements OrderDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public void updateOrder(Order order) {
 		
 		session = sessionFactory.openSession();

@@ -8,6 +8,7 @@
   http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">  
   
     <context:component-scan base-package="org.pulem3t.crm.controller" />
+    <context:component-scan base-package="org.pulem3t.crm.dao" />
     <mvc:annotation-driven />
     <mvc:resources mapping="/crm/**" location="/static/" />
     <mvc:resources mapping="/js/**" location="/static/js/" />
@@ -18,7 +19,7 @@
     <mvc:resources mapping="index.html" location="/static/" />
     
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.postgresql.Driver" />
+        <property name="driverClassName" value="${db.driverName}" />
         <property name="url" value="${db.jdbcUrl}" />
         <property name="username" value="${db.username}" />
         <property name="password" value="${db.password}" />
@@ -44,7 +45,7 @@
         </property>
         <property name="hibernateProperties">
             <props>
-                <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
                 <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
                 <prop key="hibernate.hbm2ddl.auto">update</prop>
             </props>
@@ -56,13 +57,5 @@
     </bean>
     
     <bean id="persistenceExceptionTranslationPostProcessor"  class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />  
-  	
-    <bean id="adminDao" class="org.pulem3t.crm.dao.impl.AdminDAOImpl" />
-    <bean id="customerDao" class="org.pulem3t.crm.dao.impl.CustomerDAOImpl" />
-    <bean id="managerDao" class="org.pulem3t.crm.dao.impl.ManagerDAOImpl" />
-    <bean id="vendorDao" class="org.pulem3t.crm.dao.impl.VendorDAOImpl" />
-    <bean id="orderDao" class="org.pulem3t.crm.dao.impl.OrderDAOImpl" />
-    <bean id="companyDao" class="org.pulem3t.crm.dao.impl.CompanyDAOImpl" />
-    <bean id="orderItemDao" class="org.pulem3t.crm.dao.impl.OrderItemDAOImpl" />
-    <bean id="productDao" class="org.pulem3t.crm.dao.impl.ProductDAOImpl" />
+  
   </beans>

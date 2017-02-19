@@ -11,7 +11,9 @@ import org.hibernate.Transaction;
 import org.pulem3t.crm.dao.ManagerDAO;
 import org.pulem3t.crm.entry.Manager;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class ManagerDAOImpl implements ManagerDAO {
 
 	@Autowired
@@ -20,7 +22,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 	private Session session = null;
 	private Transaction tx = null;
 	
-	@Override
+	
 	public List<Manager> getManagers() {
 		
 		session = sessionFactory.openSession();
@@ -33,7 +35,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 		return managerList;
 	}
 
-	@Override
+	
 	public Manager getManager(Long id) {
 		
 		
@@ -47,7 +49,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 		return manager;
 	}
 
-	@Override
+	
 	public Long addManager(Manager manager) {
 		
 		session = sessionFactory.openSession();
@@ -60,7 +62,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 		return manager.getId();
 	}
 
-	@Override
+	
 	public void delManager(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -72,7 +74,7 @@ public class ManagerDAOImpl implements ManagerDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public void updateManager(Manager manager) {
 		
 		session = sessionFactory.openSession();

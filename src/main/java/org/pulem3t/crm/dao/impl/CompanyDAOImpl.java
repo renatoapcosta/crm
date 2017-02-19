@@ -11,7 +11,9 @@ import org.hibernate.Transaction;
 import org.pulem3t.crm.dao.CompanyDAO;
 import org.pulem3t.crm.entry.Company;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class CompanyDAOImpl implements CompanyDAO {
 
 	@Autowired
@@ -20,7 +22,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 	private Session session = null;
 	private Transaction tx = null;
 	
-	@Override
+	
 	public List<Company> getCompanies() {
 		
 		session = sessionFactory.openSession();
@@ -33,7 +35,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 		return companyList;
 	}
 
-	@Override
+	
 	public Company getCompany(Long id) {
 		
 		
@@ -47,7 +49,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 		return company;
 	}
 
-	@Override
+	
 	public Long addCompany(Company company) {
 		
 		session = sessionFactory.openSession();
@@ -60,7 +62,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 		return company.getId();
 	}
 
-	@Override
+	
 	public void delCompany(Long id) {
 		
 		session = sessionFactory.openSession();
@@ -72,7 +74,7 @@ public class CompanyDAOImpl implements CompanyDAO {
 		session.close();
 	}
 
-	@Override
+	
 	public void updateCompany(Company company) {
 		
 		session = sessionFactory.openSession();
